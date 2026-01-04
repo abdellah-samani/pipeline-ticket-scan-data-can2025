@@ -1,0 +1,29 @@
+{
+    "name": "ls_sql_can2025",
+    "type": "Microsoft.DataFactory/factories/linkedservices",
+    "properties": {
+        "parameters": {
+            "database_name": {
+                "type": "string"
+            }
+        },
+        "annotations": [],
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+            "server": "sql-server-can2025.database.windows.net",
+            "database": "@{linkedService().database_name}",
+            "encrypt": "mandatory",
+            "trustServerCertificate": false,
+            "authenticationType": "SQL",
+            "userName": "sqladmin",
+            "password": {
+                "type": "AzureKeyVaultSecret",
+                "store": {
+                    "referenceName": "ls_kv_can2025",
+                    "type": "LinkedServiceReference"
+                },
+                "secretName": "key-sql-can2025"
+            }
+        }
+    }
+}
