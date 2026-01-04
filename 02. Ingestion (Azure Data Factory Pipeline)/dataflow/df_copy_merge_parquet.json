@@ -1,0 +1,75 @@
+{
+    "name": "df_copy_merge_parquet",
+    "properties": {
+        "type": "MappingDataFlow",
+        "typeProperties": {
+            "sources": [
+                {
+                    "dataset": {
+                        "referenceName": "ds_csv_landing_can2025",
+                        "type": "DatasetReference"
+                    },
+                    "name": "sourcecsv"
+                }
+            ],
+            "sinks": [
+                {
+                    "dataset": {
+                        "referenceName": "ds_parquet_bronze_can2025",
+                        "type": "DatasetReference"
+                    },
+                    "name": "sinkparquet"
+                }
+            ],
+            "transformations": [],
+            "scriptLines": [
+                "parameters{",
+                "     file_name as string,",
+                "     folder_name as string",
+                "}",
+                "source(output(",
+                "          ticket_id as string,",
+                "          match_id as string,",
+                "          stadium_id as string,",
+                "          fan_id as string,",
+                "          ticket_category as string,",
+                "          ticket_price_mad as integer,",
+                "          purchase_channel as string,",
+                "          purchase_date as date,",
+                "          entry_time as string,",
+                "          entry_gate as string,",
+                "          scan_status as string,",
+                "          scan_timestamp as timestamp",
+                "     ),",
+                "     allowSchemaDrift: true,",
+                "     validateSchema: false,",
+                "     ignoreNoFilesFound: false,",
+                "     wildcardPaths:[(concat($folder_name,'/',$file_name,'/*.csv'))]) ~> sourcecsv",
+                "sourcecsv sink(allowSchemaDrift: true,",
+                "     validateSchema: false,",
+                "     format: 'parquet',",
+                "     filePattern:(concat($file_name, '_raw.parquet')),",
+                "     umask: 0022,",
+                "     preCommands: [],",
+                "     postCommands: [],",
+                "     skipDuplicateMapInputs: true,",
+                "     skipDuplicateMapOutputs: true,",
+                "     mapColumn(",
+                "          ticket_id,",
+                "          match_id,",
+                "          stadium_id,",
+                "          fan_id,",
+                "          ticket_category,",
+                "          ticket_price_mad,",
+                "          purchase_channel,",
+                "          purchase_date,",
+                "          entry_time,",
+                "          entry_gate,",
+                "          scan_status,",
+                "          scan_timestamp",
+                "     ),",
+                "     partitionBy('hash', 1)) ~> sinkparquet"
+            ]
+        }
+    }
+}
