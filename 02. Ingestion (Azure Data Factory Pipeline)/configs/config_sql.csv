@@ -1,0 +1,5 @@
+database_name,datasource,schema_name,table_name,target_path
+db_caf_competition,matches,dbo,matches,competition_data
+db_caf_competition,teams,dbo,teams,competition_data
+db_gov_infrastructure,cities,dbo,cities,infrastructure_data
+db_gov_infrastructure,stadiums,dbo,stadiums,infrastructure_data
