@@ -1,0 +1,19 @@
+{
+    "name": "ls_adls_can2025",
+    "type": "Microsoft.DataFactory/factories/linkedservices",
+    "properties": {
+        "annotations": [],
+        "type": "AzureBlobFS",
+        "typeProperties": {
+            "url": "https://adlscan2025.dfs.core.windows.net/",
+            "accountKey": {
+                "type": "AzureKeyVaultSecret",
+                "store": {
+                    "referenceName": "ls_kv_can2025",
+                    "type": "LinkedServiceReference"
+                },
+                "secretName": "key-adls-can2025"
+            }
+        }
+    }
+}
