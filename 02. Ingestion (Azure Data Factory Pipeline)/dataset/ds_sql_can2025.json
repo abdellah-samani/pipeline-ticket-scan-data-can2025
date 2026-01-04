@@ -1,0 +1,30 @@
+{
+    "name": "ds_sql_can2025",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "ls_sql_can2025",
+            "type": "LinkedServiceReference",
+            "parameters": {
+                "database_name": {
+                    "value": "@dataset().database_name",
+                    "type": "Expression"
+                }
+            }
+        },
+        "parameters": {
+            "schema_name": {
+                "type": "string"
+            },
+            "table_name": {
+                "type": "string"
+            },
+            "database_name": {
+                "type": "string"
+            }
+        },
+        "annotations": [],
+        "type": "AzureSqlTable",
+        "schema": []
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}
