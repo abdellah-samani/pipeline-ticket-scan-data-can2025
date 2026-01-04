@@ -44,15 +44,16 @@ Bronze (Parquet) → Silver (Delta) → Gold (Star Schema Delta)
 
 ## 📁 Structure du projet
 
+```
 CAN 2025 - Pipeline Data Engineering End-to-End/
 ├── 01. Source de Données (SQL et CSV)/                # Données utilisés dans le projet
 ├── 02. Ingestion (Azure Data Factory Pipeline)/       # Pipelines ADF et configurations
 ├── 03. Transformation (Azure Databricks Notebooks)/   # Notebooks Databricks
-├── 04. Consommation (Power BI Dashboard)              # Fichiers Power BI (capture d'écran + fichier pbix)
+├── 04. Consommation (Power BI Dashboard)              # Fichiers Power BI (capture d'écran)
 ├── 05. Documentation/                                 # Documentation et diagrammes
 ├── 06. Screenshots/                                   # Captures d'écran du portail Azure
 └── README.md
-
+```
 
 ## 🔧 Composants principaux
 
