@@ -1,4 +1,4 @@
-# 🏆 CAN 2025 – Pipeline pour l’ingestion, la transformation et l’analyse des données des scans de billets – CAN 2025
+# 🏆 CAN 2025 – Pipeline pour l’ingestion, la transformation et l’analyse des données des scans de billets
 
 ## 📋 Aperçu du projet
 Pipeline complet d'ingestion, transformation et analyse des données **simulées** de scans de billets pour la Coupe d'Afrique des Nations 2025.
